@@ -175,6 +175,10 @@ ifeq ($(strip $(TARGET_DISABLE_OMX_VIDEO_CROP_OUTPUT)),true)
 LOCAL_CFLAGS += -DDISABLE_OMX_VIDEO_CROP_OUTPUT
 endif
 
+ifeq ($(TARGET_BOARD_PLATFORM),omap4)
+LOCAL_CFLAGS += -DBOARD_CANT_REALLOCATE_OMX_BUFFERS
+endif
+
 LOCAL_CLANG := true
 LOCAL_SANITIZE := unsigned-integer-overflow signed-integer-overflow
 
